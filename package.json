@@ -1,0 +1,11 @@
+{
+  "name": "smk-math",
+  "version": "0.0.1",
+  "description": "A simple static website for trainning math skills",
+  "main": "index.js",
+  "scripts": {
+    "test": "echo \"Error: no test specified\" && exit 1"
+  },
+  "author": "André Maldonado",
+  "license": "ISC"
+}
