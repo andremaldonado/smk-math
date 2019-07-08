@@ -21,7 +21,7 @@ function uglifyJS() {
 function buildHTML() {
     return gulp.src(htmlSources)
         .pipe(htmlreplace({
-            'js':jsDestinations + '/' + jsFinalFile
+            'js':'scripts/' + jsFinalFile
         }))
         .pipe(gulp.dest(htmlDestinations))
 }
