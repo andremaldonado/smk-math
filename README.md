@@ -5,16 +5,21 @@ SMK-Math is a simple webpage for my son to study some math problems.
 ## Installation
 
 * Clone the repo
-* Run `npm install`
-* Run `gulp`
+* Install gulp (it it is not installed) `npm install -g Gulp`
+* Install dependencies `npm install`
 
 ## Usage
 
-You can simple open dist/index.html
+You can simple open src/index.html
 
 ## Testing
 
 No tests were implemented
+
+## Build and publish
+
+* Run gulp: `gulp`
+* Merge dist folder to GH-Pages: `git subtree push --prefix dist origin gh-pages`
 
 ## Contributing
 
