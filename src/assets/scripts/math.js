@@ -4,7 +4,7 @@ score = 0
 tries = 0
 
 function getRndInteger(min, max) {
-  return Math.floor(Math.random() * (max - min + 1) ) + min;
+  return Math.floor(Math.random() * (max - min + 1) ) + min
 }
 
 function loadMathProblem() {
@@ -13,7 +13,7 @@ function loadMathProblem() {
     tries += 1
     document.getElementById('lblProblem').innerHTML = 'Quanto é ' + firstNumber + ' x ' + secondNumber + '?'
     document.getElementById('inpResult').value = '' 
-    document.getElementById('inpResult').focus(); 
+    document.getElementById('inpResult').focus() 
 }
 
 function solveIt() {
