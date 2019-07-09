@@ -3,10 +3,16 @@ jobs:
     build:
         docker:
             - image: circleci/node:10.13
+        
+        branches:
+            only:
+                - master
+
         working_directory: ~/build
 
         steps:
             - checkout
+            - run: sudo npm install -g gulp
             - run: npm install
             - run: gulp 
             - run: git subtree push --prefix dist origin gh-pages 

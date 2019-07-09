@@ -18,8 +18,7 @@ No tests were implemented
 
 ## Build and publish
 
-* Run gulp: `gulp`
-* Merge dist folder to GH-Pages: `git subtree push --prefix dist origin gh-pages`
+The code will be automatically published when we accept your PR and merge it into master.
 
 ## Contributing
 
