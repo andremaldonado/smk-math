@@ -14,5 +14,5 @@ jobs:
             - checkout
             - run: sudo npm install -g gulp
             - run: npm install
-            - run: gulp 
+            - run: gulp build 
             - run: git subtree push --prefix dist origin gh-pages 
