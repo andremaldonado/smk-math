@@ -3,19 +3,23 @@
 <head>
     <meta charset="UTF-8">
     <title>SMK Math Exercises</title>
+    <link rel="stylesheet" href="https://fonts.googleapis.com/css?family=Raleway:200">
 </head>
 <body>
-    <div>
-        <h1>SMK Math Exercises</h1>
-    </div>
-    <div>
-        <p id="lblProblem">Quanto é:</p>
-        <input type="number" id="inpResult">
-        <input type="submit" id="sbmNext" value="Próxima conta" onclick="return solveIt()">
-        <p id="lblScore">Score: 0</p>
-    </div>
-    <div>
-        <script src="scripts/script.min.js"></script>
+    <div class="wrapper">
+        <div class="header">
+            <h1 class="header__title">SMK Math Exercises</h1>
+        </div>
+        <div class="content">
+            <p id="lblProblem">Quanto é:</p>
+            <input type="number" id="inpResult">
+            <input type="submit" id="sbmNext" value="Próxima conta" onclick="return solveIt()">
+            <p id="lblScore">Score: 0</p>
+        </div>
+        <div class="footer">
+            <p>Prouded built by me for my son!</p>
+            <script src="scripts/script.min.js"></script>
+        </div>
     </div>
 </body>
 </html>
