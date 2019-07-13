@@ -2,31 +2,51 @@ const gulp = require('gulp')
 const rename = require('gulp-rename')
 const uglify = require('gulp-terser')
 const htmlreplace = require('gulp-html-replace')
-
-const jsSources = 'src/assets/scripts/math.js'
-const jsDestinations = 'dist/scripts'
+const sass = require('gulp-sass')
 
 const htmlSources = 'src/**/*.htm*'
-const htmlDestinations = 'dist'
+const htmlDestination = 'dist'
 
-const jsFinalFile = 'script.min.js'
+const scriptsSources = 'src/assets/scripts/math.js'
+const scriptsDestination = 'dist/scripts'
+const scriptsFinalFile = 'script.min.js'
 
-function uglifyJS() {
-    return gulp.src(jsSources)
-        .pipe(rename(jsFinalFile))
+const stylesSources = 'src/assets/styles/**/*.scss'
+const stylesDestination = 'src/assets/styles/css/'
+const stylesDeployDestination = 'dist/styles/'
+
+const uglifyJS = () => {
+    return gulp.src(scriptsSources)
+        .pipe(rename(scriptsFinalFile))
         .pipe(uglify())
-        .pipe(gulp.dest(jsDestinations))
+        .pipe(gulp.dest(scriptsDestination))
 }
 
-function buildHTML() {
+const buildHTML = () => {
     return gulp.src(htmlSources)
         .pipe(htmlreplace({
-            'js':'scripts/' + jsFinalFile
+            'js':'scripts/' + scriptsFinalFile
         }))
-        .pipe(gulp.dest(htmlDestinations))
+        .pipe(gulp.dest(htmlDestination))
 }
 
-exports.default = gulp.series(
+const buildCSS = () => {
+    return gulp.src(stylesSources)
+        .pipe(sass().on('error', sass.logError))
+        .pipe(gulp.dest(stylesDestination))
+        .pipe(gulp.dest(stylesDeployDestination))
+}
+
+const watchCSS = () => {
+    return gulp.watch(stylesSources, gulp.series(buildCSS))
+}
+
+exports.build = gulp.series(
     uglifyJS,
-    buildHTML
+    buildHTML,
+    buildCSS
+)
+
+exports.default = gulp.series(
+    watchCSS
 )
