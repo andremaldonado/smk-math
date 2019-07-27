@@ -14,20 +14,13 @@ const scriptsFinalFile = 'script.min.js'
 const stylesSources = 'src/assets/styles/**/*.scss'
 const stylesDestination = 'src/assets/styles/css/'
 const stylesDeployDestination = 'dist/styles/'
+const stylesDeployFile = 'styles/main.css'
 
 const uglifyJS = () => {
     return gulp.src(scriptsSources)
         .pipe(rename(scriptsFinalFile))
         .pipe(uglify())
         .pipe(gulp.dest(scriptsDestination))
-}
-
-const buildHTML = () => {
-    return gulp.src(htmlSources)
-        .pipe(htmlreplace({
-            'js':'scripts/' + scriptsFinalFile
-        }))
-        .pipe(gulp.dest(htmlDestination))
 }
 
 const buildCSS = () => {
@@ -37,14 +30,23 @@ const buildCSS = () => {
         .pipe(gulp.dest(stylesDeployDestination))
 }
 
+const buildHTML = () => {
+    return gulp.src(htmlSources)
+        .pipe(htmlreplace({
+            'js':'scripts/' + scriptsFinalFile,
+            'css':stylesDeployFile
+        }))
+        .pipe(gulp.dest(htmlDestination))
+}
+
 const watchCSS = () => {
     return gulp.watch(stylesSources, gulp.series(buildCSS))
 }
 
 exports.build = gulp.series(
     uglifyJS,
-    buildHTML,
-    buildCSS
+    buildCSS,
+    buildHTML
 )
 
 exports.default = gulp.series(
