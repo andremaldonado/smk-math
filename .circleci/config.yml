@@ -15,5 +15,4 @@ jobs:
             - run: sudo npm install -g gulp
             - run: npm install
             - run: gulp build
-            - run: cd dist
-            - run: ./../.circleci/deploy.sh
+            - run: ./.circleci/deploy.sh
