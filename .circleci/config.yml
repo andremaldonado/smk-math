@@ -12,7 +12,4 @@ jobs:
 
         steps:
             - checkout
-            #- run: sudo npm install -g gulp
-            #- run: npm install
-            #- run: gulp build 
-            - run: git subtree push --prefix dist origin gh-pages 
+            - run: git push origin `git subtree split --prefix dist master`:production --force 
