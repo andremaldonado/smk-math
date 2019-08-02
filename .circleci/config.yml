@@ -12,4 +12,8 @@ jobs:
 
         steps:
             - checkout
-            - run: git push origin `git subtree split --prefix dist master`:gh-pages --force 
+            - run: npm install -g gulp
+            - run: npm install
+            - run: gulp build
+            - run: cd dist
+            - run: ./../.circleci/deploy.sh
