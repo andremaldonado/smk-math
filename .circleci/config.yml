@@ -14,6 +14,7 @@ jobs:
             - checkout
             - run: sudo npm install -g gulp
             - run: npm install
+            - run: rm -rf dist
             - run: gulp build 
             - run: cd dist
             - run: git init
