@@ -14,13 +14,12 @@ jobs:
             - checkout
             - run: sudo npm install -g gulp
             - run: npm install
-            - run: rm -rf dist
             - run: gulp build 
-            - run: cd dist
-            - run: git init
-            - run: git config --global user.email "andre.maldonado@gmail.com"
-            - run: git config --global user.name "CircleCI build"
-            - run: git add .
-            - run: git commit -m "Update gh-pages content"
-            - run: git remote add origin git@github.com:andremaldonado/smk-math.git
-            - run: git push --force origin master:gh-pages 
+            - run: git stash
+            - run: git branch --delete --force gh-pages
+            - run: git checkout --orphan gh-pages
+            - run: git add -f dist
+            - run: git commit -m "Rebuild GitHub pages"
+            - run: git filter-branch -f --prune-empty --subdirectory-filter dist && git push -f origin gh-pages
+            - run: git checkout $(git symbolic-ref --short HEAD)
+            - run: git stash apply || :
