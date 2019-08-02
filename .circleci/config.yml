@@ -15,11 +15,4 @@ jobs:
             - run: sudo npm install -g gulp
             - run: npm install
             - run: gulp build 
-            - run: git stash
-            - run: git branch --delete --force gh-pages
-            - run: git checkout --orphan gh-pages
-            - run: git add -f dist
-            - run: git commit -m "Rebuild GitHub pages"
-            - run: git filter-branch -f --prune-empty --subdirectory-filter dist && git push -f origin gh-pages
-            - run: git checkout $(git symbolic-ref --short HEAD)
-            - run: git stash apply
+            - run: git subtree push --prefix dist origin gh-pages 
