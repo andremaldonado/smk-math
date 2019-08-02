@@ -22,4 +22,4 @@ jobs:
             - run: git commit -m "Rebuild GitHub pages"
             - run: git filter-branch -f --prune-empty --subdirectory-filter dist && git push -f origin gh-pages
             - run: git checkout $(git symbolic-ref --short HEAD)
-            - run: git stash apply || :
+            - run: git stash apply
