@@ -15,4 +15,11 @@ jobs:
             - run: sudo npm install -g gulp
             - run: npm install
             - run: gulp build 
-            - run: git subtree push --prefix dist origin gh-pages 
+            - run: cd dist
+            - run: git init
+            - run: git config --global user.email "andre.maldonado@gmail.com"
+            - run: git config --global user.name "CircleCI build"
+            - run: git add .
+            - run: git commit -m "Update gh-pages content"
+            - run: git remote add origin git@github.com:andremaldonado/smk-math.git
+            - run: git push --force origin master:gh-pages 
