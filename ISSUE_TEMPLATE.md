@@ -7,4 +7,8 @@
 
 - [ ] Now
 - [ ] Soon
-- [ ] No need to rush 
+- [ ] No need to rush
+
+## How will we implement this?
+
+- [ ] List the tasks 
