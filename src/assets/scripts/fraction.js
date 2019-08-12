@@ -8,20 +8,21 @@ function getRndInteger(min, max) {
 }
 
 function loadMathProblem() {
-    firstNumber = getRndInteger(6,8)
-    secondNumber = getRndInteger(0,10)
+    numerator = getRndInteger(1,10)
+    denominator = getRndInteger(2,10)
+    number = denominator * getRndInteger(1,10)
     tries += 1
-    document.getElementById('lblProblem').innerHTML = 'Quanto é ' + firstNumber + ' x ' + secondNumber + '?'
+    document.getElementById('lblProblem').innerHTML = 'Quanto é ' + numerator + '/' + denominator + ' de ' + number + '?'
     document.getElementById('inpResult').value = '' 
     document.getElementById('inpResult').focus() 
 }
 
 function solveIt() {
     let obtainedResult = document.getElementById('inpResult').value
-    const desiredResult = firstNumber * secondNumber
+    const desiredResult = (number / denominator) * numerator
 
     score += obtainedResult == desiredResult ? 1 : 0
-    document.getElementById('lblScore').innerText = 'Score: ' + score + ' de ' + tries + ' tentativas.'
+    document.getElementById('lblScore').innerText = 'Pontuação: ' + score + ' de ' + tries + ' tentativas.'
 
     loadMathProblem()
 
