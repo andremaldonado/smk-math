@@ -2,7 +2,7 @@
 <html lang="en">
 <head>
     <meta charset="UTF-8">
-    <title>SMK Math Exercises</title>
+    <title>SMK Math Exercises - Multiplications</title>
     <link rel="stylesheet" href="styles/main.css">
     <link rel="stylesheet" href="https://fonts.googleapis.com/css?family=Raleway:200">
 </head>
@@ -12,13 +12,15 @@
             <h1 class="header__title">SMK Math Exercises</h1>
         </div>
         <div class="content">
-            <ul>
-                <li><a href="multiplication.html">Multiplicação</a></li>
-                <li><a href="fraction.html">Frações</a></li>
-            </ul>
+            <p id="lblProblem">Quanto é:</p>
+            <input type="number" id="inpResult">
+            <input type="submit" id="sbmNext" value="Próxima conta" onclick="return solveIt()">
+            <p id="lblScore">Pontuação: 0</p>
         </div>
         <div class="footer">
             <p>Ir para <a href="index.html">Home</a></p>
+            <script src="scripts/script.min.js"></script>
+            <script>window.onLoad = loadMultiplicationProblem()</script>
         </div>
     </div>
 </body>
