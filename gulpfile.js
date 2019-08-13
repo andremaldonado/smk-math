@@ -7,7 +7,7 @@ const sass = require('gulp-sass')
 const htmlSources = 'src/**/*.htm*'
 const htmlDestination = 'dist'
 
-const scriptsSources = 'src/assets/scripts/math.js'
+const scriptsSources = 'src/assets/scripts/*.js'
 const scriptsDestination = 'dist/scripts'
 const scriptsFinalFile = 'script.min.js'
 
