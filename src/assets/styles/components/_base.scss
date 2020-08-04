@@ -34,6 +34,13 @@ body {
 }
 
 .content {
+    
+    display: flex;
+    flex-flow: column nowrap;
+    width: 90%;
+    justify-content: space-between;
+    height: 10rem;
+    max-width: 350px;
 
 }
 
