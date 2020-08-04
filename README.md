@@ -24,6 +24,10 @@ The code will be automatically published when we accept your PR and merge it int
 
 Pull requests are welcome. For major changes, please open an issue first to discuss what you would like to change.
 
+## Changelog
+
+* 2020-08-03 - Exercises gets harder each 10 tries
+
 ## License
 
 [MIT](https://choosealicense.com/licenses/mit/)
