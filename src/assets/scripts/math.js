@@ -15,6 +15,7 @@ function loadMultiplicationProblem() {
     tries += 1
     difficult = parseInt(tries/10) + 1
     document.getElementById('lblProblem').innerHTML = 'Quanto é ' + firstNumber + ' x ' + secondNumber + '?'
+    document.getElementById('lblDifficult').innerHTML = 'Dificuldade: ' + difficult
     document.getElementById('inpResult').value = '' 
     document.getElementById('inpResult').focus() 
 }
@@ -39,6 +40,7 @@ function loadFractionProblem() {
     tries += 1
     difficult = parseInt(tries/10) + 1
     document.getElementById('lblProblem').innerHTML = 'Quanto é ' + numerator + '/' + denominator + ' de ' + number + '?'
+    document.getElementById('lblDifficult').innerHTML = 'Dificuldade: ' + difficult
     document.getElementById('inpResult').value = '' 
     document.getElementById('inpResult').focus() 
 }
