@@ -13,13 +13,23 @@
             <h1 class="header__title">SMK Math Exercises</h1>
         </div>
         <div class="content">
-            <ul>
-                <li><a href="multiplication.html">Multiplicação</a></li>
-                <li><a href="fraction.html">Frações</a></li>
-            </ul>
+            <div class="content__menu">
+                <ul>
+                    <li><a href="#" onclick="loadMultiplication()">Multiplicação</a></li>
+                    <li><a href="#" onclick="loadFraction()">Frações</a></li>
+                </ul>
+            </div>
+            <div id="question" class="content__question">
+                <p id="lblProblem">Quanto é:</p>
+                <input type="number" id="inpResult">
+                <input type="submit" id="sbmNext" value="Próxima conta" onclick="return solveIt()">
+                <p id="lblScore">Pontuação: 0</p>
+                <p id="lblDifficult">Dificuldade: 1</p>
+            </div>
         </div>
         <div class="footer">
-            <p>Ir para <a href="index.html">Home</a></p>
+            <p>Contribua com <a href="https://github.com/andremaldonado/smk-math">esse código!</a></p>
+            <script src="scripts/script.min.js"></script>
         </div>
     </div>
 </body>
