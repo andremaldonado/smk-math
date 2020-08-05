@@ -1,8 +1,24 @@
 let score, tries, difficult, problem
 
-score = 0
-tries = 0
-difficult = 1
+function loadMultiplication() {
+  reset()
+  document.getElementById('question').style.display = 'block'
+  loadMultiplicationProblem()
+}
+
+function loadFraction() {
+  reset()
+  document.getElementById('question').style.display = 'block'
+  loadFractionProblem()
+}
+
+function reset() {
+  score = 0
+  tries = 0
+  difficult = 1
+  clearResults()
+  document.getElementById('lblScore').innerText = 'Pontuação: ' + score + ' de ' + tries + ' tentativas.'
+}
 
 function getRndInteger(min, max) {
   return Math.floor(Math.random() * (max - min + 1) ) + min
@@ -72,4 +88,6 @@ document.getElementById('inpResult').addEventListener("keyup", function(event) {
                 break;
         }
     }
-});
+})
+
+reset()
