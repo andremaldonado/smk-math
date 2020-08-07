@@ -26,6 +26,7 @@ Pull requests are welcome. For major changes, please open an issue first to disc
 
 ## Changelog
 
+* 2020-08-07 - Boring naming convention for DOM. Just technical stuff
 * 2020-08-05 - Reduce the number of files and code duplication
 * 2020-08-05 - Difficult fine-tune. It was too hard
 * 2020-08-04 - Show a label with the current difficult of the exercise

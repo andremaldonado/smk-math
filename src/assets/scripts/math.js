@@ -2,13 +2,13 @@ let score, tries, difficult, problem
 
 function loadMultiplication() {
   reset()
-  document.getElementById('question').style.display = 'block'
+  document.getElementById('content__question').style.display = 'block'
   loadMultiplicationProblem()
 }
 
 function loadFraction() {
   reset()
-  document.getElementById('question').style.display = 'block'
+  document.getElementById('content__question').style.display = 'block'
   loadFractionProblem()
 }
 
@@ -17,7 +17,7 @@ function reset() {
   tries = 0
   difficult = 1
   clearResults()
-  document.getElementById('lblScore').innerText = 'Pontuação: ' + score + ' de ' + tries + ' tentativas.'
+  document.getElementById('content__score').innerText = 'Pontuação: ' + score + ' de ' + tries + ' tentativas.'
 }
 
 function getRndInteger(min, max) {
@@ -25,8 +25,9 @@ function getRndInteger(min, max) {
 }
 
 function clearResults() {
-    document.getElementById('inpResult').value = '' 
-    document.getElementById('inpResult').focus() 
+    document.getElementById('content__difficult').value = 'Dificuldade: 1.00'
+    document.getElementById('content__result').value = '' 
+    document.getElementById('content__result').focus() 
 }
 
 function loadMultiplicationProblem() {
@@ -34,13 +35,13 @@ function loadMultiplicationProblem() {
     firstNumber = getRndInteger(0,parseInt(25*difficult))
     secondNumber = getRndInteger(0,parseInt(10*difficult))
     tries += 1
-    document.getElementById('lblProblem').innerHTML = 'Quanto é ' + firstNumber + ' x ' + secondNumber + '?'
+    document.getElementById('content__problem').innerHTML = 'Quanto é ' + firstNumber + ' x ' + secondNumber + '?'
     clearResults()
 }
 
 function solveMultiplicationProblem() {
     updateScore(
-      document.getElementById('inpResult').value,
+      document.getElementById('content__result').value,
       firstNumber * secondNumber
     )
     loadMultiplicationProblem()
@@ -53,13 +54,13 @@ function loadFractionProblem() {
     denominator = getRndInteger(2,parseInt(10*difficult))
     number = denominator * getRndInteger(1,parseInt(10*difficult))
     tries += 1
-    document.getElementById('lblProblem').innerHTML = 'Quanto é ' + numerator + '/' + denominator + ' de ' + number + '?'
+    document.getElementById('content__problem').innerHTML = 'Quanto é ' + numerator + '/' + denominator + ' de ' + number + '?'
     clearResults()
 }
 
 function solveFractionProblem() {
     updateScore(
-      document.getElementById('inpResult').value,
+      document.getElementById('content__result').value,
       (number / denominator) * numerator
     )
     loadFractionProblem()
@@ -68,16 +69,16 @@ function solveFractionProblem() {
 
 function updateScore(obtainedResult, desiredResult) {
     score += obtainedResult == desiredResult ? 1 : 0
-    document.getElementById('lblScore').innerText = 'Pontuação: ' + score + ' de ' + tries + ' tentativas.'
+    document.getElementById('content__score').innerText = 'Pontuação: ' + score + ' de ' + tries + ' tentativas.'
     updateDifficult()
 }
 
 function updateDifficult() {
     difficult = (score / tries) * (parseInt(tries/10) + 1)
-    document.getElementById('lblDifficult').innerHTML = 'Dificuldade: ' + difficult.toFixed(2)
+    document.getElementById('content__difficult').innerHTML = 'Dificuldade: ' + difficult.toFixed(2)
 }
 
-document.getElementById('inpResult').addEventListener("keyup", function(event) {
+document.getElementById('content__result').addEventListener("keyup", function(event) {
     if (event.keyCode === 13) {
         switch (problem) {
             case 'multiplication':
