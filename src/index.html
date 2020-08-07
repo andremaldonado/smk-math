@@ -11,30 +11,31 @@
 </head>
 <body>
     <div class="wrapper">
-        <div class="header">
+        <header class="header">
             <h1 class="header__title">SMK Math Exercises</h1>
-        </div>
-        <div class="content">
-            <div class="content__menu">
-                <ul>
+            <nav>
+                <ul class="header__menu">
                     <li><a href="#" onclick="loadMultiplication()">Multiplicação</a></li>
                     <li><a href="#" onclick="loadFraction()">Frações</a></li>
                 </ul>
-            </div>
-            <div id="content__question" class="content__question">
+            </nav>
+        </header>
+        <div class="content">
+            <main id="content__question" class="content__question">
                 <p id="content__problem">Quanto é:</p>
                 <input type="number" id="content__result">
                 <input type="submit" id="content__next" value="Próxima conta" onclick="return solveIt()">
+                <p id="content__timer">Tempo: 0</p>
                 <p id="content__score">Pontuação: 0</p>
                 <p id="content__difficult">Dificuldade: 1.00</p>
-            </div>
+            </main>
         </div>
-        <div class="footer">
+        <footer class="footer">
             <p>Contribua com <a href="https://github.com/andremaldonado/smk-math">esse código!</a></p>
             <!-- build:js -->
             <script src="assets/scripts/math.js"></script>
             <!-- endbuild -->
-        </div>
+        </footer>
     </div>
 </body>
 </html>

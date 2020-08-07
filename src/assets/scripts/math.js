@@ -1,33 +1,58 @@
-let score, tries, difficult, problem
+let score, tries, difficult, problem, timer
 
-function loadMultiplication() {
-  reset()
-  document.getElementById('content__question').style.display = 'block'
-  loadMultiplicationProblem()
+// Support, independent functions
+
+function getRndInteger(min, max) {
+  return Math.floor(Math.random() * (max - min + 1) ) + min
 }
 
-function loadFraction() {
-  reset()
-  document.getElementById('content__question').style.display = 'block'
-  loadFractionProblem()
-}
+// General DOM functions
 
 function reset() {
   score = 0
   tries = 0
   difficult = 1
   clearResults()
+  startTimer()
   document.getElementById('content__score').innerText = 'Pontuação: ' + score + ' de ' + tries + ' tentativas.'
 }
 
-function getRndInteger(min, max) {
-  return Math.floor(Math.random() * (max - min + 1) ) + min
+function startTimer() {
+  clearTimeout(timer)
+  tick(0)
+}
+
+function tick(time) {
+  time++;
+  document.getElementById('content__timer').innerText = 'Tempo: ' + time
+  timer = setTimeout('tick(' + time + ')', 1000)
 }
 
 function clearResults() {
     document.getElementById('content__difficult').value = 'Dificuldade: 1.00'
+    document.getElementById('content__timer').innerText = 'Tempo: 0'
     document.getElementById('content__result').value = '' 
-    document.getElementById('content__result').focus() 
+    document.getElementById('content__result').focus()
+    startTimer()
+}
+
+function updateScore(obtainedResult, desiredResult) {
+    score += obtainedResult == desiredResult ? 1 : 0
+    document.getElementById('content__score').innerText = 'Pontuação: ' + score + ' de ' + tries + ' tentativas.'
+    updateDifficult()
+}
+
+function updateDifficult() {
+    difficult = (score / tries) * (parseInt(tries/10) + 1)
+    document.getElementById('content__difficult').innerHTML = 'Dificuldade: ' + difficult.toFixed(2)
+}
+
+// Multiplication
+
+function loadMultiplication() {
+  reset()
+  document.getElementById('content__question').style.display = 'block'
+  loadMultiplicationProblem()
 }
 
 function loadMultiplicationProblem() {
@@ -46,6 +71,14 @@ function solveMultiplicationProblem() {
     )
     loadMultiplicationProblem()
     return false
+}
+
+// Fraction
+
+function loadFraction() {
+  reset()
+  document.getElementById('content__question').style.display = 'block'
+  loadFractionProblem()
 }
 
 function loadFractionProblem() {
@@ -67,16 +100,7 @@ function solveFractionProblem() {
     return false
 }
 
-function updateScore(obtainedResult, desiredResult) {
-    score += obtainedResult == desiredResult ? 1 : 0
-    document.getElementById('content__score').innerText = 'Pontuação: ' + score + ' de ' + tries + ' tentativas.'
-    updateDifficult()
-}
-
-function updateDifficult() {
-    difficult = (score / tries) * (parseInt(tries/10) + 1)
-    document.getElementById('content__difficult').innerHTML = 'Dificuldade: ' + difficult.toFixed(2)
-}
+// Starting functions
 
 document.getElementById('content__result').addEventListener("keyup", function(event) {
     if (event.keyCode === 13) {
