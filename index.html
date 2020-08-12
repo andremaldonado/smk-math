@@ -1,37 +1,47 @@
 <!DOCTYPE html>
 <html lang="en">
 <head>
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <meta charset="UTF-8">
-    <title>SMK Math Exercises</title>
-    <link rel="stylesheet" href="styles/main.css">
-    <link rel="stylesheet" href="https://fonts.googleapis.com/css?family=Raleway:200">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <meta charset="UTF-8">
+  <title>SMK Math Exercises</title>
+  <link rel="stylesheet" href="styles/main.css">
+  <link rel="stylesheet" href="https://fonts.googleapis.com/css?family=Raleway:200">
 </head>
 <body>
-    <div class="wrapper">
-        <header class="header">
-            <h1 class="header__title">SMK Math Exercises</h1>
-            <nav>
-                <ul class="header__menu">
-                    <li><a href="#" onclick="loadMultiplication()">Multiplicação</a></li>
-                    <li><a href="#" onclick="loadFraction()">Frações</a></li>
-                </ul>
-            </nav>
-        </header>
-        <div class="content">
-            <main id="content__question" class="content__question">
-                <p id="content__problem">Quanto é:</p>
-                <input type="number" id="content__result">
-                <input type="submit" id="content__next" value="Próxima conta" onclick="return solveIt()">
-                <p id="content__timer">Tempo: 0</p>
-                <p id="content__score">Pontuação: 0</p>
-                <p id="content__difficult">Dificuldade: 1.00</p>
-            </main>
+  <div class="wrapper">
+    <header class="header">
+      <h1 class="header__title">SMK Math Exercises</h1>
+      <nav>
+        <ul class="header__menu">
+          <li><a id="header__multiplication" href="#">Multiplicação</a></li>
+          <li><a id="header__fraction" href="#">Frações</a></li>
+        </ul>
+      </nav>
+    </header>
+    <div class="content">
+      <main id="question" class="question">
+        <p id="question__problem">Quanto é:</p>
+        <input type="number" id="question__result">
+        <input type="submit" id="question__next" value="Próxima conta">
+        <p id="question__timer">Tempo: 0</p>
+        <p id="question__score">Pontuação: 0</p>
+        <p id="question__difficult">Dificuldade: 1.00</p>
+        <button id="question__finish">Finalizar</button>
+      </main>
+      <section id="final-score" class="final-score">
+        <h2>Score</h2>
+        <p id="final-score__value"></p>
+        <div id="final-score__share">
+          <a id="final-score__facebook-share" href="https://www.addtoany.com/add_to/facebook?linkurl=https%3A%2F%2Fandremaldonado.github.io%2Fsmk-math%2F&amp;linkname={{title}}" target="_blank"><img src="https://static.addtoany.com/buttons/facebook.svg" width="32" height="32" style="background-color:royalblue"></a>
+          <a id="final-score__twitter-share" href="https://www.addtoany.com/add_to/twitter?linkurl=https%3A%2F%2Fandremaldonado.github.io%2Fsmk-math%2F&amp;linkname={{title}}" target="_blank"><img src="https://static.addtoany.com/buttons/twitter.svg" width="32" height="32" style="background-color:royalblue"></a>
+          <a id="final-score__whatsapp-share" href="https://www.addtoany.com/add_to/whatsapp?linkurl=https%3A%2F%2Fandremaldonado.github.io%2Fsmk-math%2F&amp;linkname={{title}}" target="_blank"><img src="https://static.addtoany.com/buttons/whatsapp.svg" width="32" height="32" style="background-color:royalblue"></a>
         </div>
-        <footer class="footer">
-            <p>Contribua com <a href="https://github.com/andremaldonado/smk-math">esse código!</a></p>
-            <script src="scripts/script.min.js"></script>
-        </footer>
+      </section>
     </div>
+    <footer class="footer">
+      <p>Contribua com <a href="https://github.com/andremaldonado/smk-math">esse código!</a></p>
+      <script src="scripts/script.min.js"></script>
+    </footer>
+  </div>
 </body>
 </html>
