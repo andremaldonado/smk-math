@@ -70,7 +70,7 @@ body {
     display: flex;
     flex-flow: row;
     width: 100%;
-    justify-content: start;
+    justify-content: center;
     border-top: solid 0.1rem gray;
     padding: .4em 0;
     border-bottom: solid 0.1rem gray; }
@@ -86,15 +86,6 @@ body {
       color: #777;
       font-size: .8rem; }
 
-.content {
-  display: flex;
-  flex-flow: column nowrap;
-  width: 90%;
-  justify-content: space-between;
-  height: 10rem;
-  max-width: 350px;
-  margin-top: 1rem; }
-
 .footer {
   align-self: stretch;
   justify-self: stretch;
@@ -105,5 +96,22 @@ body {
   font-size: .8rem;
   padding: 1rem; }
 
-.content__question {
+.content {
+  display: flex;
+  flex-flow: column nowrap;
+  width: 90%;
+  justify-content: space-between;
+  height: 90%;
+  max-width: 350px;
+  margin-top: 1rem; }
+
+.question {
   display: none; }
+
+.final-score {
+  display: none;
+  flex-flow: column;
+  align-items: center;
+  height: 100%;
+  justify-content: center;
+  font-size: 3rem; }

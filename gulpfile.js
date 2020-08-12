@@ -3,6 +3,7 @@ const rename = require('gulp-rename')
 const uglify = require('gulp-terser')
 const htmlreplace = require('gulp-html-replace')
 const sass = require('gulp-sass')
+const concat = require('gulp-concat')
 
 const htmlSources = 'src/**/*.htm*'
 const htmlDestination = 'dist'
@@ -18,7 +19,7 @@ const stylesDeployFile = 'styles/main.css'
 
 const uglifyJS = () => {
     return gulp.src(scriptsSources)
-        .pipe(rename(scriptsFinalFile))
+        .pipe(concat(scriptsFinalFile))
         .pipe(uglify())
         .pipe(gulp.dest(scriptsDestination))
 }
