@@ -1,0 +1,1 @@
+"use strict";function calculateFinalScore(e,t,a,c){let l=calculateTimeSpent(e);return parseInt((t^2*a)/(c*l)*100)}function calculateTimeSpent(e){return(Date.now()-e)/1e3}function calculateAverageTimeSpent(e,t){return calculateTimeSpent(e)/t}export{calculateFinalScore,calculateTimeSpent,calculateAverageTimeSpent};
