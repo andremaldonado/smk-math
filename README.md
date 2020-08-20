@@ -10,7 +10,11 @@ SMK-Math is a simple webpage for my son to study some math problems.
 
 ## Usage
 
-You can simple open src/index.html
+* Run `npm run watch`. This will prepare all the files and create a localhost server. This command will watch CSS and JS changes
+
+### Other commands
+
+* `npm run dev` - this command will minify JS files and create almost the same environment you will find in production. It will also run eslint on javascript files and modules
 
 ## Testing
 
@@ -26,14 +30,15 @@ Pull requests are welcome. For major changes, please open an issue first to disc
 
 ## Changelog
 
-* 2020-08-12 - :one: Final score for players and share button
-* 2020-08-07 - :watch: Including a timer and code organization
-* 2020-08-07 - Boring naming convention for DOM. Just technical stuff
-* 2020-08-05 - Reduce the number of files and code duplication
-* 2020-08-05 - Difficult fine-tune. It was too hard
-* 2020-08-04 - Show a label with the current difficult of the exercise
-* 2020-08-03 - Improving questions style
-* 2020-08-03 - Exercises gets harder each 10 tries
+* 2020-08-19 - :bar_chart:- 1.2.1 - More info to final screen, a better code
+* 2020-08-12 - :one: - 1.2.0 -Final score for players and share button
+* 2020-08-07 - :watch: - 1.1.0 - Including a timer and code organization
+* 2020-08-07 - :unamused: - 1.0.6 - Boring naming convention for DOM. Just technical stuff
+* 2020-08-05 - :computer: - 1.0.5 - Reduce the number of files and code duplication
+* 2020-08-05 - :control_knobs: - 1.0.4 - Difficult fine-tune. It was too hard
+* 2020-08-04 - :label: - 1.0.3 - Show a label with the current difficult of the exercise
+* 2020-08-03 - :nail_care: - 1.0.2 - Improving questions style
+* 2020-08-03 - :scream_cat: - 1.0.1 - Exercises gets harder each 10 tries
 
 ## License
 
