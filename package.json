@@ -1,24 +1,28 @@
 {
   "name": "smk-math",
-  "version": "1.2.1",
+  "version": "1.2.2",
   "description": "A simple static website for trainning math skills",
   "main": "index.js",
   "scripts": {
-    "dev": "eslint src/assets/scripts/**/* --ext .js,.mjs  && gulp build && http-server ./dist/",
-    "watch": "gulp prepareDev && gulp & http-server ./src/"
+    "test": "jest --watchAll --config=jest.config.js",
+    "watch": "gulp prepareDev && gulp & http-server ./src/",
+    "dev": "eslint src/assets/scripts/**/* --ext .js,.mjs  && gulp build && http-server ./dist/"
   },
   "author": "André Maldonado",
   "license": "ISC",
   "devDependencies": {
+    "@babel/preset-env": "^7.11.0",
     "eslint": "^7.7.0",
     "eslint-plugin-import": "^2.22.0",
+    "eslint-plugin-jest": "^23.20.0",
     "gulp": "^4.0.2",
     "gulp-concat": "^2.6.1",
     "gulp-html-replace": "^1.6.2",
     "gulp-rename": "^1.4.0",
     "gulp-sass": "^4.1.0",
     "gulp-uglify-es": "^2.0.0",
-    "http-server": "^0.12.3"
+    "http-server": "^0.12.3",
+    "jest": "^26.4.1"
   },
   "dependencies": {}
 }

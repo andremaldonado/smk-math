@@ -1,7 +1,10 @@
 env:
   browser: true
   es2020: true
-extends: 'eslint:recommended'
+extends: 
+  ['eslint:recommended','plugin:jest/recommended']
+plugins:
+  ['jest']
 parserOptions:
   ecmaVersion: 11
   sourceType: module
@@ -19,4 +22,4 @@ rules:
     - error
     - never
 ignorePatterns:
-  ["src/assets/scripts/dev.js"]
+  ['src/assets/scripts/dev.js']
