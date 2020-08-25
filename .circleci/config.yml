@@ -14,5 +14,6 @@ jobs:
             - checkout
             - run: sudo npm install -g gulp
             - run: npm install
+            - run: npx jest --config=jest.config.js
             - run: gulp build
             - run: ./.circleci/deploy.sh

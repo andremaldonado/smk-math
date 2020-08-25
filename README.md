@@ -8,6 +8,8 @@ SMK-Math is a simple webpage for my son to study some math problems.
 * Install gulp (it it is not installed) `npm install -g Gulp`
 * Install dependencies `npm install`
 
+Note: Node 12+ is needed
+
 ## Usage
 
 * Run `npm run watch`. This will prepare all the files and create a localhost server. This command will watch CSS and JS changes
@@ -30,8 +32,9 @@ Pull requests are welcome. For major changes, please open an issue first to disc
 
 ## Changelog
 
-* 2020-08-19 - :bar_chart:- 1.2.1 - More info to final screen, a better code
-* 2020-08-12 - :one: - 1.2.0 -Final score for players and share button
+* 2020-08-25 - :bug: - 1.2.2 - Fix score and unit tests
+* 2020-08-19 - :bar_chart: - 1.2.1 - More info to final screen, a better code
+* 2020-08-12 - :one: - 1.2.0 - Final score for players and share button
 * 2020-08-07 - :watch: - 1.1.0 - Including a timer and code organization
 * 2020-08-07 - :unamused: - 1.0.6 - Boring naming convention for DOM. Just technical stuff
 * 2020-08-05 - :computer: - 1.0.5 - Reduce the number of files and code duplication

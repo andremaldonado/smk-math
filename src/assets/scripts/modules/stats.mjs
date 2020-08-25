@@ -1,8 +1,10 @@
 'use strict'
 
 function calculateFinalScore(userEntryTime, userScore, finalDifficult, userTries) {
+  if (userScore == 0) return 0
   let totalTime = calculateTimeSpent(userEntryTime)
-  let finalScore = parseInt(((userScore^2 * finalDifficult) / (userTries*totalTime))*100)
+  let finalScore = (userScore/userTries*100)*(userScore/10)*(finalDifficult*3/totalTime)
+  finalScore = Math.round(finalScore)
   return finalScore
 }
 
