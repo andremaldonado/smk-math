@@ -1,6 +1,6 @@
 {
   "name": "smk-math",
-  "version": "1.2.2",
+  "version": "1.2.3",
   "description": "A simple static website for trainning math skills",
   "main": "index.js",
   "scripts": {
