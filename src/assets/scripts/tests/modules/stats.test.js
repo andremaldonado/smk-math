@@ -2,6 +2,25 @@
 
 import * as stats from '../../modules/stats.mjs'
 
+expect.extend({
+  toBeWithinRange(received, floor, ceiling) {
+    const pass = received >= floor && received <= ceiling
+    if (pass) {
+      return {
+        message: () =>
+          `expected ${received} not to be within range ${floor} - ${ceiling}`,
+        pass: true,
+      }
+    } else {
+      return {
+        message: () =>
+          `expected ${received} to be within range ${floor} - ${ceiling}`,
+        pass: false,
+      }
+    }
+  },
+})
+
 describe('Calculate Final score for a', () => {
 
   describe('player that did not give a single correct answer', () => {
@@ -65,7 +84,7 @@ describe('Calculate Final score for a', () => {
 
     test('and get right on 3 of them' , () => {
       let score = 3
-      expect(stats.calculateFinalScore(entryTime, score, difficult, tries)).toBe(3)
+      expect(stats.calculateFinalScore(entryTime, score, difficult, tries)).toBeCloseTo(3,1)
     })
 
   })
@@ -78,22 +97,22 @@ describe('Calculate Final score for a', () => {
 
     test('and finished with a difficult of 2' , () => {
       let difficult = 2
-      expect(stats.calculateFinalScore(entryTime, score, difficult, tries)).toBe(30)
+      expect(stats.calculateFinalScore(entryTime, score, difficult, tries)).toBeWithinRange(29,31)
     })
 
     test('and finished with a difficult of 3' , () => {
       let difficult = 3
-      expect(stats.calculateFinalScore(entryTime, score, difficult, tries)).toBe(45)
+      expect(stats.calculateFinalScore(entryTime, score, difficult, tries)).toBeWithinRange(44,46)
     })
 
     test('and finished with a difficult of 4' , () => {
       let difficult = 4
-      expect(stats.calculateFinalScore(entryTime, score, difficult, tries)).toBe(60)
+      expect(stats.calculateFinalScore(entryTime, score, difficult, tries)).toBeWithinRange(59,61)
     })
 
     test('and finished with a difficult of 5' , () => {
       let difficult = 5
-      expect(stats.calculateFinalScore(entryTime, score, difficult, tries)).toBe(75)
+      expect(stats.calculateFinalScore(entryTime, score, difficult, tries)).toBeWithinRange(74,76)
     })
 
   })
@@ -127,7 +146,7 @@ describe('Calculate time spent for a', () => {
 
   test('player that started the game 100 minutes ago', () => { 
     let userEntryTime = new Date(Date.now() - 6000000)
-    expect(stats.calculateTimeSpent(userEntryTime)).toBe(6000) 
+    expect(stats.calculateTimeSpent(userEntryTime)).toBeCloseTo(6000,1) 
   })
 
 })

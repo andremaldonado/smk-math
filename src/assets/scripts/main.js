@@ -3,66 +3,45 @@
 import * as stats from './modules/stats.mjs'
 import * as random from './modules/random.mjs'
 
-let score, tries, difficult, problem, timer, time, entryTime
+let score, tries, difficult, problem, timer, time, entryTime, expectedResult
 
 // Multiplication
 
-let firstNumber, secondNumber
-
-function loadMultiplication() {
-  reset()
-  document.getElementById('question').style.display = 'block'
-  loadMultiplicationProblem()
-}
-
 function loadMultiplicationProblem() {
+  let firstNumber, secondNumber
+  
   problem = 'multiplication'
-  firstNumber = random.getRndInteger(0,parseInt(25*difficult))
-  secondNumber = random.getRndInteger(0,parseInt(10*difficult))
+  firstNumber = random.getRandomInteger(0,parseInt(10*difficult))
+  if (difficult > 3) firstNumber = random.getRandomFloat(0,parseInt(5*difficult))
+  secondNumber = random.getRandomInteger(0,parseInt(3*difficult))
+  expectedResult = firstNumber * secondNumber
   tries += 1
   document.getElementById('question__problem').innerHTML = 'Quanto é ' + firstNumber + ' x ' + secondNumber + '?'
   clearResults()
 }
 
-function solveMultiplicationProblem() {
-  updateScore(
-    document.getElementById('question__result').value,
-    firstNumber * secondNumber
-  )
-  loadMultiplicationProblem()
-  return false
-}
-
 // Fraction
 
-let numerator, denominator, number
-
-function loadFraction() {
-  reset()
-  document.getElementById('question').style.display = 'block'
-  loadFractionProblem()
-}
-
 function loadFractionProblem() {
+  let numerator, denominator, number
+ 
   problem = 'fraction'
-  numerator = random.getRndInteger(1,parseInt(10*difficult))
-  denominator = random.getRndInteger(2,parseInt(10*difficult))
-  number = denominator * random.getRndInteger(1,parseInt(10*difficult))
+  numerator = random.getRandomInteger(1,parseInt(10*difficult))
+  denominator = random.getRandomInteger(2,parseInt(10*difficult))
+  number = denominator * random.getRandomInteger(1,parseInt(10*difficult))
+  expectedResult = numerator / denominator * number
   tries += 1
   document.getElementById('question__problem').innerHTML = 'Quanto é ' + numerator + '/' + denominator + ' de ' + number + '?'
   clearResults()
 }
 
-function solveFractionProblem() {
-  updateScore(
-    document.getElementById('question__result').value,
-    (number / denominator) * numerator
-  )
-  loadFractionProblem()
-  return false
-}
-
 // General functions
+
+function loadQuestion(callback) {
+  reset()
+  document.getElementById('question').style.display = 'block'
+  callback()
+}
 
 function reset() {
   score = 0
@@ -103,14 +82,19 @@ function updateDifficult() {
 }
 
 function solveIt() {
+  updateScore(
+    document.getElementById('question__result').value,
+    expectedResult
+  )
   switch (problem) {
   case 'multiplication':
-    solveMultiplicationProblem()
+    loadMultiplicationProblem()
     break
   case 'fraction':
-    solveFractionProblem()
+    loadFractionProblem()
     break
   }
+  return false
 }
 
 function showFinalScore(finalScore, totalTimeSpent, averageTimeSpent, finalDifficult, userQuestions, userTries) {
@@ -129,8 +113,8 @@ function showFinalScore(finalScore, totalTimeSpent, averageTimeSpent, finalDiffi
 
 // Starting and DOM functions
 
-document.getElementById('header__multiplication').addEventListener('click', function() { loadMultiplication() })
-document.getElementById('header__fraction').addEventListener('click', function() { loadFraction() })
+document.getElementById('header__multiplication').addEventListener('click', function() { loadQuestion(loadMultiplicationProblem) })
+document.getElementById('header__fraction').addEventListener('click', function() { loadQuestion(loadFractionProblem) })
 
 document.getElementById('question__result').addEventListener('keyup', function(event) {
   if (event.keyCode === 13) solveIt()
