@@ -1,1 +1,1 @@
-"use strict";function getRndInteger(t,e){return Math.floor(Math.random()*(e-t+1))+t}export{getRndInteger};
+"use strict";function getRandomInteger(t,e){return Math.floor(Math.random()*(e-t+1))+t}function getRandomFloat(t,e){let o=Math.random()*(e-t)+t;return parseFloat(o.toFixed(1))}export{getRandomInteger,getRandomFloat};
