@@ -20,7 +20,7 @@ Note: Node 12+ is needed
 
 ## Testing
 
-No tests were implemented
+* `npm run test` - this command will run tests and watch for changes
 
 ## Build and publish
 
@@ -32,6 +32,7 @@ Pull requests are welcome. For major changes, please open an issue first to disc
 
 ## Changelog
 
+* 2020-10-30 - :unamused: - 1.2.4 - Update dependencies. Just technical stuff
 * 2020-09-03 - :relaxed: - 1.2.3 - Difficult fine-tune and decimal numbers on multiplication exercises. Game is easier now
 * 2020-08-25 - :bug: - 1.2.2 - Fix score and unit tests
 * 2020-08-19 - :bar_chart: - 1.2.1 - More info to final screen, a better code
