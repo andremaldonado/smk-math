@@ -5,7 +5,7 @@ SMK-Math is a simple webpage for my son to study some math problems.
 ## Installation
 
 * Clone the repo
-* Install gulp (it it is not installed) `npm install -g Gulp`
+* Install gulp (it it is not installed) `npm install -g gulp`
 * Install dependencies `npm install`
 
 Note: Node 12+ is needed
@@ -32,6 +32,7 @@ Pull requests are welcome. For major changes, please open an issue first to disc
 
 ## Changelog
 
+* 2022-07-18 - :unamused: - 1.2.5 - Update dependencies. Just technical stuff. Also A minor fix on readme
 * 2020-10-30 - :unamused: - 1.2.4 - Update dependencies. Just technical stuff
 * 2020-09-03 - :relaxed: - 1.2.3 - Difficult fine-tune and decimal numbers on multiplication exercises. Game is easier now
 * 2020-08-25 - :bug: - 1.2.2 - Fix score and unit tests
