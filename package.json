@@ -19,10 +19,12 @@
     "gulp-concat": "^2.6.1",
     "gulp-html-replace": "^1.6.2",
     "gulp-rename": "^1.4.0",
-    "gulp-sass": "^4.1.0",
+    "gulp-sass": "^5.1.0",
     "gulp-uglify-es": "^2.0.0",
-    "http-server": "^0.12.3",
+    "http-server": "^14.1.1",
     "jest": "^26.4.1"
   },
-  "dependencies": {}
+  "dependencies": {
+    "sass": "^1.53.0"
+  }
 }
