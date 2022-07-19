@@ -32,6 +32,7 @@ Pull requests are welcome. For major changes, please open an issue first to disc
 
 ## Changelog
 
+* 2022-07-19 - :smirk: - 1.2.6 - GH Actions CD configuration
 * 2022-07-18 - :unamused: - 1.2.5 - Update dependencies. Just technical stuff. Also A minor fix on readme
 * 2020-10-30 - :unamused: - 1.2.4 - Update dependencies. Just technical stuff
 * 2020-09-03 - :relaxed: - 1.2.3 - Difficult fine-tune and decimal numbers on multiplication exercises. Game is easier now

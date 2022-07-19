@@ -17,4 +17,4 @@ jobs:
           npm install
           npx jest --config=jest.config.js
           gulp build
-          ./.circleci/deploy.sh
+          ./.github/workflows/deploy.sh
